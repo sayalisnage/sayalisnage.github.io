@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Quicksand', sans-serif; /* Changed from 'Inter' to 'Quicksand' */
-            background-color: #F9FAFB; /* Tailwind 'bg-gray-50' equivalent for a very light, clean background */
-            color: #374151; /* Tailwind 'text-gray-700' equivalent for good readability */
+            font-family: 'Quicksand', sans-serif;
+            background-color: #F9FAFB;
+            color: #374151;
         }
         .section-title {
-            /* Updated color for section titles */
             @apply text-4xl font-bold text-center mb-12 text-[#3c2724];
         }
         .card {
@@ -22,12 +21,11 @@
         .project-image {
             @apply rounded-md mb-4;
             width: 100%;
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover; /* Ensure image covers the area */
+            height: 200px;
+            object-fit: cover;
         }
-        /* Custom styling to ensure the nav link for the current section is highlighted */
         .nav-link.active {
-            @apply text-gray-200; /* Lighter shade for active link on gray background */
+            @apply text-gray-200;
             position: relative;
         }
         .nav-link.active::after {
@@ -35,16 +33,19 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: -5px; /* Adjust as needed */
+            bottom: -5px;
             height: 2px;
-            background-color: #D1D5DB; /* Tailwind gray-300 for highlight */
+            background-color: #D1D5DB;
         }
     </style>
 </head>
 <body class="leading-relaxed">
     <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">Sayali Nage</a>
+            <a href="#home" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
+                <span class="text-2xl font-bold">Sayali Nage</span>
+                <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
+            </a>
             <ul class="flex space-x-6">
                 <li><a href="#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
                 <li><a href="#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
@@ -62,7 +63,7 @@
                 <h1 class="text-6xl font-extrabold text-[#3c2724] mb-4">Hi, I'm Sayali!</h1>
                 <h2 class="text-3xl font-semibold text-[#bb9979] mb-6">Solving Real-World Problems with Data and Machine Learning | Building AI for Impact</h2>
                 <p class="text-lg leading-relaxed mb-8 text-gray-700">
-                    I'm a Data Science enthusiast passionate about building ML applications and user-focused applications. With a background in the electrical and power sector, I'm now focused on applying data science to real-world challenges—particularly in sustainability, public services, and intelligent systems.
+                    My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
                 </p>
                 <div class="space-x-4">
                     <a href="#featured-work" class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md">Explore My Work</a>
@@ -162,15 +163,29 @@
                 <div class="card p-6">
                     <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Childcare Cost vs. Living with Parents</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, based on research from SYLA The Fact Lab.
+                        An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, based on research published under my conceptual initiative, **SYLA The Fact Lab**.
                     </p>
                     <a href="assets/docs/SayaliNage_DSC640Week11-12_ProjectMilestone3_Medium1_BlogArticle.pdf" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article (PDF)</a>
                 </div>
 
                 <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Another Publication Title</h3>
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Another Placeholder Article Title</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        A brief summary of your second article or data insight, what it covers and why it's interesting.
+                        This is a placeholder for your second publication. Replace this text with a brief summary of your next article.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
+                </div>
+                 <div class="card p-6">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Third Placeholder Article Title</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Add a summary for your third publication here to give the section more content and visual presence.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Fourth Placeholder Article Title</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        You can keep adding more of these 'card' divs for each article you want to feature.
                     </p>
                     <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
                 </div>
@@ -183,7 +198,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="bg-white p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-700">
                 <p class="mb-4">
-                    I'm a Data Science enthusiast passionate about building ML applications and user-focused applications. With a background in the electrical and power sector, I'm now focused on applying data science to real-world challenges—particularly in sustainability, public services, and intelligent systems.
+                    My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
                 </p>
                 <p>
                     My journey into data science is driven by a desire to extract actionable insights and create impactful solutions. I'm always eager to learn new technologies and collaborate on challenging projects that contribute positively to the world.
