@@ -12,8 +12,9 @@
             background-color: #F9FAFB;
             color: #374151;
         }
+        /* Increased margin-bottom for section titles for better spacing */
         .section-title {
-            @apply text-4xl font-bold text-center mb-12 text-[#3c2724];
+            @apply text-4xl font-bold text-center mb-16 text-[#3c2724]; /* Adjusted from mb-12 to mb-16 */
         }
         .card {
             @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
@@ -61,7 +62,7 @@
         <section id="home" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12">
             <div class="md:w-1/2 md:pr-12">
                 <h1 class="text-6xl font-extrabold text-[#3c2724] mb-4">Hi, I'm Sayali!</h1>
-                <h2 class="text-3xl font-semibold text-[#bb9979] mb-6">Solving Real-World Problems with Data and Machine Learning</h2>
+                <h2 class="text-3xl font-semibold text-[#bb9979] mb-6">Building AI for Impact</h2>
                 <p class="text-lg leading-relaxed mb-8 text-gray-700">
                     My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
                 </p>
@@ -76,114 +77,181 @@
         </section>
 
         <section id="featured-work" class="py-16">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Featured Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="section-title">Featured Work</h2> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card">
-                    <img src="assets/img/childcare-locator.png" alt="childCare Locator Project Thumbnail" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">ChildCare Locator</h3>
+                    <img src="assets/img/childcare-locator.png" alt="Smart Childcare Recommendation System Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Smart Childcare Recommendation System</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Machine learning-powered childcare cost predictor and personalized recommender system.
+                        Predicting infant care costs and providing personalized childcare center recommendations using NDCP and socioeconomic data.
                     </p>
-                    <a href="childcare-locator.html" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    <a href="smartcare-locator.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
                 </div>
 
                 <div class="card">
                     <img src="assets/img/the-ai-gardener.png" alt="The AI Gardener Project Thumbnail" class="project-image">
                     <h3 class="text-2xl font-bold text-[#3c2724] mb-2">The AI Gardener</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        AI-powered gardening assistant built with OpenAI fine-tuning and deployed using Streamlit.
+                        AI-powered plant care assistant with a fine-tuned GPT-4o model, deployed via Streamlit.
                     </p>
                     <a href="the-ai-gardener.html" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
                 </div>
-                
+
                 <div class="card">
-                    <img src="https://placehold.co/600x400/E5E7EB/4B5563?text=Project+3" alt="Project 3 Thumbnail" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Project Title 3: [Short Description]</h3>
+                    <img src="assets/img/weather-forecast.png" alt="Weather Forecast Application Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Weather Forecast Application</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Briefly describe Project 3. Focus on the problem solved or the main outcome.
+                        Command-line weather forecasting application using Python and OpenWeatherMap API, featuring robust error handling.
                     </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
                 </div>
+
                 <div class="card">
-                    <img src="https://placehold.co/600x400/E5E7EB/4B5563?text=Project+4" alt="Project 4 Thumbnail" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Project Title 4: [Short Description]</h3>
+                    <img src="assets/img/energy-analysis-r.png" alt="Energy Analysis R Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Energy Generation & Consumption in the US</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Briefly describe Project 4. Focus on the problem solved or the main outcome.
+                        Statistical exploration of U.S. energy trends using large datasets, conducted entirely in R Markdown.
                     </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/home-energy-eda.png" alt="Home Energy EDA Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Home Energy Consumption EDA</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Examined household energy usage patterns in relation to weather data with extensive cleaning and feature engineering.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/global-energy-wrangling.png" alt="Global Energy Data Wrangling Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Global Energy Data Wrangling</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Multi-stage data wrangling project integrating diverse global energy datasets into a SQLite database.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/co2-emissions.png" alt="CO2 Emissions Data Mining Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Global CO₂ Emissions & Sustainability</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Explored CO₂ emissions, energy production, and economic indicators using data mining and predictive models.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/power-system-modeling.png" alt="Power System Modeling Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Low-Voltage Power System Modelling</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Addressed power system efficiency using household energy data and various machine learning models.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/air-pollution-forecast.png" alt="Urban Air Pollution Forecasting Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Urban Air Pollution Forecasting</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Forecasting PM2.5 air pollution in Los Angeles using time series models and environmental APIs.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project (Coming Soon)</a>
                 </div>
             </div>
         </section>
 
         <section id="technical-toolkit" class="py-16 bg-gray-50 rounded-lg">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Technical Toolkit</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+            <h2 class="section-title">Technical Toolkit</h2> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
                 <div class="p-6 bg-white rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-[#3c2724] mb-4">Programming Languages</h3>
                     <ul class="list-none space-y-2 text-gray-700">
                         <li>Python</li>
-                        <li>SQL</li>
                         <li>R</li>
+                        <li>SQL</li>
                     </ul>
                 </div>
                 <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Libraries & Frameworks</h3>
+                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Data Analysis & ML Libraries</h3>
                     <ul class="list-none space-y-2 text-gray-700">
                         <li>Pandas, NumPy</li>
-                        <li>Scikit-learn, XGBoost, LightGBM</li>
-                        <li>Matplotlib, Seaborn</li>
-                        <li>Streamlit</li>
+                        <li>Scikit-learn, Statsmodels</li>
+                        <li>XGBoost, LightGBM</li>
+                        <li>Matplotlib, Seaborn, ggplot2</li>
+                        <li>Plotly, PowerBI</li>
                     </ul>
                 </div>
                 <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Tools & Concepts</h3>
+                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Machine Learning & Modeling</h3>
                     <ul class="list-none space-y-2 text-gray-700">
-                        <li>PowerBI</li>
-                        <li>MLFlow, Git</li>
+                        <li>Regression (Linear, Ridge, Lasso, ElasticNet)</li>
+                        <li>Classification (KNN, Decision Tree, Random Forest, Gradient Boost)</li>
+                        <li>Time Series Forecasting (SARIMA, SARIMAX)</li>
+                        <li>Recommender Systems</li>
+                        <li>PCA, Feature Engineering</li>
+                        <li>Model Evaluation (MAE, RMSE, SMAPE)</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Generative AI & Deployment</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
                         <li>OpenAI API, Prompt Engineering</li>
-                        <li>Data Cleaning, Feature Engineering, Deployment</li>
+                        <li>Fine-tuning LLMs</li>
+                        <li>Streamlit</li>
+                        <li>API Integration (OpenWeatherMap, OpenAQ)</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Databases & Tools</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
+                        <li>SQLite, SQL</li>
+                        <li>Git, GitHub</li>
+                        <li>Jupyter Notebook, R Markdown</li>
+                        <li>MLFlow (concepts)</li>
                     </ul>
                 </div>
                  <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Interests</h3>
+                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Methodologies & Concepts</h3>
                     <ul class="list-none space-y-2 text-gray-700">
-                        <li>ML & NLP for social good</li>
-                        <li>Recommender systems</li>
-                        <li>Human-centered AI</li>
-                        <li>Energy sustainability & public infrastructure</li>
-                        <li>Storytelling through data</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>Data Cleaning & Wrangling</li>
+                        <li>Statistical Analysis, Hypothesis Testing</li>
+                        <li>Data Mining</li>
+                        <li>Audience-Centric Data Storytelling</li>
+                        <li>Ethical AI & Data Representation</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="publications" class="py-16 bg-gray-50 rounded-lg mt-12">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Publications & Insights</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h2 class="section-title">Publications & Insights</h2> <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="card p-6">
                     <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Childcare Cost vs. Living with Parents</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, based on research published under my conceptual initiative, **SYLA The Fact Lab**.
+                        An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, published under **SYLA The Fact Lab**.
                     </p>
                     <a href="assets/docs/SayaliNage_DSC640Week11-12_ProjectMilestone3_Medium1_BlogArticle.pdf" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article (PDF)</a>
                 </div>
 
                 <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Another Placeholder Article Title</h3>
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Communicating Childcare Cost Insights</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
-                        This is a placeholder for your second publication. Replace this text with a brief summary of your next article.
+                        A storytelling project leveraging the National Database of Childcare Prices, presented through a blog, Instagram reel, and Facebook ad.
                     </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story (Coming Soon)</a>
                 </div>
-                 <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Third Placeholder Article Title</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Add a summary for your third publication here to give the section more content and visual presence.
-                    </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
-                </div>
+
                 <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Fourth Placeholder Article Title</h3>
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Placeholder Article Title</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        This is a placeholder for a future article or insight you'd like to feature here.
+                    </p>
+                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
+                </div>
+
+                 <div class="card p-6">
+                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Another Placeholder Article</h3>
                     <p class="text-base text-gray-600 mb-4 flex-grow">
                         You can keep adding more of these 'card' divs for each article you want to feature.
                     </p>
@@ -195,8 +263,10 @@
         </section>
 
         <section id="about" class="py-16">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">About Me</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-700">
+            <h2 class="section-title">About Me</h2> <div class="bg-white p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-700">
+                <p class="mb-4">
+                    This portfolio outlines a series of projects completed as part of a Master's program, showcasing a robust foundation in Python programming, R-based statistical analysis, comprehensive data wrangling, and an introduction to data mining. The projects highlight practical application of theoretical knowledge, emphasizing data acquisition, cleaning, analysis, modeling, and visualization across diverse datasets.
+                </p>
                 <p class="mb-4">
                     My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
                 </p>
@@ -207,8 +277,7 @@
         </section>
 
         <section id="contact" class="py-16 bg-gray-50 rounded-lg mt-12">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <h2 class="section-title">Get in Touch</h2> <div class="bg-white p-8 rounded-lg shadow-lg text-center">
                 <p class="text-lg leading-relaxed mb-8 text-gray-700">
                     I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
                 </p>
