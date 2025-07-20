@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayali Nage - Data Science Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0FDF4; /* bg-emerald-50 equivalent for a very light, clean background */
+            color: #1F2937; /* text-gray-800 equivalent for good readability */
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-emerald-800; /* Darker emerald for prominent titles */
+        }
+        .card {
+            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
+        }
+        .project-image {
+            @apply rounded-md mb-4;
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure image covers the area */
+        }
+        /* Custom styling to ensure the nav link for the current section is highlighted */
+        /* This requires JavaScript to dynamically add/remove 'active' class */
+        .nav-link.active {
+            @apply text-emerald-200; /* Lighter shade for active link */
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px; /* Adjust as needed */
+            height: 2px;
+            background-color: #A7F3D0; /* Tailwind emerald-200 */
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+    <header class="bg-emerald-800 text-white p-6 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold rounded-md px-3 py-2 hover:bg-emerald-700 transition-colors duration-300">Sayali Nage</a>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">Home</a></li>
+                <li><a href="#projects" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">Featured Work</a></li>
+                <li><a href="#skills" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">Technical Toolkit</a></li>
+                <li><a href="#blogs-articles" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">Blogs/Articles</a></li>
+                <li><a href="#about" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">About</a></li>
+                <li><a href="#contact" class="nav-link text-lg hover:text-emerald-200 transition-colors duration-300">Get in Touch</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="container mx-auto px-6 py-12">
+        <section id="home" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12">
+            <div class="md:w-1/2 md:pr-12">
+                <h1 class="text-6xl font-extrabold text-emerald-900 mb-4">Hi, I'm Sayali!</h1>
+                <h2 class="text-3xl font-semibold text-emerald-700 mb-6">Data Science Enthusiast | Solving Real-World Problems with Data and Machine Learning | Building AI Tools for Everyday Impact</h2>
+                <p class="text-lg leading-relaxed mb-8 text-gray-700">
+                    I'm a Data Science enthusiast passionate about building ML applications and user-focused applications. With a background in the electrical and power sector, I'm now focused on applying data science to real-world challenges—particularly in sustainability, public services, and intelligent systems.
+                </p>
+                <div class="space-x-4">
+                    <a href="#projects" class="bg-emerald-700 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-emerald-800 transition-colors duration-300 shadow-md">Explore My Projects</a>
+                    <a href="#contact" class="border border-emerald-700 text-emerald-700 px-6 py-3 rounded-full text-lg font-medium hover:bg-emerald-100 transition-colors duration-300 shadow-md">Get in Touch</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                <img src="sayali.jpeg" alt="Sayali Nage's Professional Photo" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover">
+            </div>
+        </section>
+
+        <section id="projects" class="py-16">
+            <h2 class="section-title text-emerald-800">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <img src="smartcare-locator.png" alt="SmartCare Locator Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">SmartCare Locator</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Machine learning-powered childcare cost predictor and personalized recommender system.
+                    </p>
+                    <a href="https://github.com/sayalisnage/Smart-Childcare-Locator-With-Machine-Learning" target="_blank" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+
+                <div class="card">
+                    <img src="ai-gardener.png" alt="The AI Gardener Project Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">The AI Gardener</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        AI-powered gardening assistant built with OpenAI fine-tuning and deployed using Streamlit.
+                    </p>
+                    <a href="https://github.com/sayalisnage/ai-gardener-openai-streamlit" target="_blank" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+                
+                <div class="card">
+                    <img src="https://placehold.co/600x400/D1FAE5/065F46?text=Project+3" alt="Project 3 Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Project Title 3: [Short Description]</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Briefly describe Project 3. Focus on the problem solved or the main outcome.
+                    </p>
+                    <a href="#" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/600x400/D1FAE5/065F46?text=Project+4" alt="Project 4 Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Project Title 4: [Short Description]</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Briefly describe Project 4. Focus on the problem solved or the main outcome.
+                    </p>
+                    <a href="#" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/600x400/D1FAE5/065F46?text=Project+5" alt="Project 5 Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Project Title 5: [Short Description]</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Briefly describe Project 5. Focus on the problem solved or the main outcome.
+                    </p>
+                    <a href="#" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/600x400/D1FAE5/065F46?text=Project+6" alt="Project 6 Thumbnail" class="project-image">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Project Title 6: [Short Description]</h3>
+                    <p class="text-base text-gray-600 mb-4 flex-grow">
+                        Briefly describe Project 6. Focus on the problem solved or the main outcome.
+                    </p>
+                    <a href="#" class="mt-4 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors duration-300 self-start">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 bg-emerald-50 rounded-lg">
+            <h2 class="section-title text-emerald-800">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-emerald-800 mb-4">Programming Languages</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>R</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-emerald-800 mb-4">Libraries & Frameworks</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
+                        <li>Pandas, NumPy</li>
+                        <li>Scikit-learn, XGBoost, LightGBM</li>
+                        <li>Matplotlib, Seaborn</li>
+                        <li>Streamlit</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-emerald-800 mb-4">Tools & Concepts</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
+                        <li>PowerBI</li>
+                        <li>MLFlow, Git</li>
+                        <li>OpenAI API, Prompt Engineering</li>
+                        <li>Data Cleaning, Feature Engineering, Deployment</li>
+                    </ul>
+                </div>
+                 <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-emerald-800 mb-4">Interests</h3>
+                    <ul class="list-none space-y-2 text-gray-700">
+                        <li>ML & NLP for social good</li>
+                        <li>Recommender systems</li>
+                        <li>Human-centered AI</li>
+                        <li>Energy sustainability & public infrastructure</li>
+                        <li>Storytelling through data</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16">
+            <h2 class="section-title text-emerald-800">About Me</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-700">
+                <p class="mb-4">
+                    I'm a Data Science enthusiast passionate about building ML applications and user-focused applications. With a background in the electrical and power sector, I'm now focused on applying data science to real-world challenges—particularly in sustainability, public services, and intelligent systems.
+                </p>
+                <p>
+                    My journey into data science is driven by a desire to extract actionable insights and create impactful solutions. I'm always eager to learn new technologies and collaborate on challenging projects that contribute positively to the world.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 bg-emerald-50 rounded-lg mt-12">
+            <h2 class="section-title text-emerald-800">Get in Touch</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                <p class="text-lg leading-relaxed mb-8 text-gray-700">
+                    I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:sayalinage@gmail.com" class="bg-emerald-700 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-emerald-800 transition-colors duration-300 shadow-md">Email Me</a>
+                    <a href="https://www.linkedin.com/in/sayali-nage-34303b136" target="_blank" class="bg-gray-700 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-md">LinkedIn</a>
+                    <a href="https://github.com/sayalisnage" target="_blank" class="bg-black text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 shadow-md">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-emerald-800 text-white text-center p-6 mt-12">
+        <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Optional: Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) { // Adjust 'sectionHeight / 3' for sensitivity
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
