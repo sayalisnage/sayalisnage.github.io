@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantifying Energy Burden in the United States - Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #F9FAFB;
+            color: #374151;
+        }
+        .project-section-title {
+            @apply text-3xl font-bold text-[#3c2724] mb-6;
+        }
+        pre {
+            background-color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: #374151;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #bb9979;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #a3876b;
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+    <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
+                <span class="text-2xl font-bold">Sayali Nage</span>
+                <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
+                <li><a href="index.html#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
+                <li><a href="index.html#technical-toolkit" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Technical Toolkit</a></li>
+                <li><a href="index.html#publications" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Publications</a></li>
+                <li><a href="index.html#about" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">About</a></li>
+                <li><a href="index.html#contact" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Get in Touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-5xl font-extrabold text-[#3c2724] mb-8 text-center">Quantifying Energy Burden in the United States</h1>
+            <p class="text-lg text-gray-700 mb-6 text-center">A State-Level Assessment of Electricity Affordability and Climate Impact (2021–2023)</p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <a href="https://github.com/sayalisnage/energy-burden-us" target="_blank"
+                   class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.012c0 4.417 2.865 8.165 6.84 9.48.5.09.68-.216.68-.48c0-.236-.008-.866-.013-1.7-2.782.603-3.37-1.34-3.37-1.34-.454-1.155-1.11-1.463-.08-1.57C4.09 13.116 4.672 13.567 5 13.882c.582.99 1.522.704 1.87.536.058-.417.228-.704.414-.866-1.448-.165-2.96-.72-2.96-3.228 0-.712.256-1.298.674-1.756-.068-.165-.292-.83.065-1.733 0 0 .54-.176 1.77.67A9.97 9.97 0 0110 5.4c.54.088 1.09.13 1.64.13.55 0 1.1-.042 1.64-.13 1.23-.846 1.77-.67 1.77-.67.354.903.13 1.568.064 1.733.418.458.674 1.044.674 1.756 0 2.518-1.512 3.062-2.965 3.22.235.204.444.606.444 1.222 0 1.07-.01 1.936-.01 2.19 0 .266.18.57.688.48C17.135 18.174 20 14.425 20 10.012 20 4.484 15.523 0 10 0z"></path></svg>
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+
+            <h2 class="project-section-title">Project Overview</h2>
+            <p>This project investigates the percentage of household income spent on electricity (energy burden) across the United States from 2021 to 2023, combining data from EIA, ACS, and NOAA to analyze regional disparities, drivers, and policy implications.</p>
+
+            <h2 class="project-section-title">Data Sources</h2>
+            <ul>
+                <li><strong>EIA:</strong> Monthly residential electricity prices, sales, and customer counts (<a href="https://www.eia.gov/electricity/data.php#revenue">link</a>).</li>
+                <li><strong>ACS:</strong> Annual median household income per state (<a href="https://data.census.gov/table/ACSST1Y2023.S1903">link</a>).</li>
+                <li><strong>NOAA:</strong> Monthly climate data (temperature & Cooling Degree Days) (<a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/service-api">link</a>).</li>
+            </ul>
+
+            <h2 class="project-section-title">Methodology</h2>
+            <ol>
+                <li>Data collection and preprocessing.</li>
+                <li>Cleaning and alignment of datasets.</li>
+                <li>Calculation of energy burden %.</li>
+                <li>EDA to identify regional patterns.</li>
+                <li>Statistical modeling and SHAP interpretability.</li>
+            </ol>
+
+            <h2 class="project-section-title">Technology Stack</h2>
+            <ul>
+                <li>Python, Pandas, NumPy</li>
+                <li>Matplotlib, Seaborn, Plotly</li>
+                <li>Scikit-learn, Statsmodels, SHAP</li>
+                <li>Jupyter Notebooks, Git</li>
+            </ul>
+
+            <h2 class="project-section-title">How to Run the Project</h2>
+            <ol>
+                <li><pre><code>git clone https://github.com/sayalisnage/energy-burden-us
+cd energy-burden-us</code></pre></li>
+                <li><pre><code>python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate</code></pre></li>
+                <li><pre><code>pip install -r requirements.txt</code></pre></li>
+                <li>Acquire EIA, ACS, and NOAA data (see README for details).</li>
+                <li>Run preprocessing scripts and Jupyter notebook analysis.</li>
+            </ol>
+
+            <h2 class="project-section-title">Results Summary</h2>
+            <ul>
+                <li>Southern states face highest burdens due to low incomes and high cooling needs.</li>
+                <li>Income is the strongest negative driver of burden.</li>
+                <li>Price and climate metrics are significant positive drivers.</li>
+            </ul>
+
+            <h2 class="project-section-title">Future Work</h2>
+            <ul>
+                <li>Expand to 5–10 years for trend analysis.</li>
+                <li>Add housing characteristics for efficiency insights.</li>
+                <li>Forecast under climate and economic scenarios.</li>
+            </ul>
+
+            <h2 class="project-section-title">Contact</h2>
+            <p>For questions or collaboration, email <a href="mailto:sayalinage@gmail.com">sayalinage@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/sayali-nage-34303b136/" target="_blank">LinkedIn</a>.</p>
+        </article>
+    </main>
+
+    <footer class="bg-[#919191] text-white text-center p-6 mt-12">
+        <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
+    </footer>
+</body>
+</html>
 
