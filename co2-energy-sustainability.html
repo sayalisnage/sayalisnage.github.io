@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Global CO2 Emissiomns to Enhance Energy Sustainability</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #F9FAFB;
+            color: #374151;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-[#3c2724];
+        }
+        .project-section-title {
+            @apply text-3xl font-bold text-[#3c2724] mb-6;
+        }
+        .subsection-title {
+            @apply text-2xl font-semibold text-[#bb9979] mb-4;
+        }
+        pre {
+            background-color: #e2e8f0; /* bg-gray-200 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-md */
+            overflow-x: auto; /* For long lines of code */
+            margin-bottom: 1.5rem;
+        }
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: #374151; /* text-gray-700 */
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #bb9979; /* A shade of your accent color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #a3876b; /* Slightly darker shade on hover */
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 3rem 0;
+        }
+        /* Styles for navigation highlighting */
+        .nav-link.active {
+            @apply text-gray-200;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px;
+            height: 2px;
+            background-color: #D1D5DB;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+    <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
+                <span class="text-2xl font-bold">Sayali Nage</span>
+                <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
+                <li><a href="index.html#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
+                <li><a href="index.html#technical-toolkit" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Technical Toolkit</a></li>
+                <li><a href="index.html#publications" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Publications</a></li>
+                <li><a href="index.html#about" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">About</a></li>
+                <li><a href="index.html#contact" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Get in Touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-5xl font-extrabold text-center mb-8 text-[#3c2724]">Global CO2 Emissions Prediction</h1>
+            <p class="text-xl text-center mb-8 text-gray-600">A data science project to enhance energy sustainability by predicting global CO2 emissions.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <a href="https://github.com/sayalisnage/global-co2-energy-sustainability" target="_blank"
+                    class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.012c0 4.417 2.865 8.165 6.84 9.48.5.09.68-.216.68-.48c0-.236-.008-.866-.013-1.7-2.782.603-3.37-1.34-3.37-1.34-.454-1.155-1.11-1.463-.08-1.57C4.09 13.116 4.672 13.567 5 13.882c.582.99 1.522.704 1.87.536.058-.417.228-.704.414-.866-1.448-.165-2.96-.72-2.96-3.228 0-.712.256-1.298.674-1.756-.068-.165-.292-.83.065-1.733 0 0 .54-.176 1.77.67A9.97 9.97 0 0110 5.4c.54.088 1.09.13 1.64.13.55 0 1.1-.042 1.64-.13 1.23-.846 1.77-.67 1.77-.67.354.903.13 1.568.064 1.733.418.458.674 1.044.674 1.756 0 2.518-1.512 3.062-2.965 3.22.235.204.444.606.444 1.222 0 1.07-.01 1.936-.01 2.19 0 .266.18.57.688.48C17.135 18.174 20 14.425 20 10.012 20 4.484 15.523 0 10 0z"></path></svg>
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+
+            <hr class="my-8">
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Project Overview</h2>
+                <p class="mb-4 text-base text-gray-700">
+                    The rising levels of global CO2 emissions from burning fossil fuels are a major driver of climate change. This project uses a machine learning approach to analyze global energy consumption patterns and demographic data to build a predictive model for CO2 emissions. The goal is to provide a tool that can not only forecast emissions but also help identify the most impactful factors for reducing carbon footprints and promoting sustainable energy sources.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Data Sources</h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>
+                        <strong>Global Energy Consumption and Generation:</strong> This dataset from Our World in Data contains country-level energy consumption records from 2000-2020.
+                        <ul class="list-circle list-inside ml-6 mt-1">
+                            <li>Features include: per capita energy consumption, share of fossil fuels (coal, oil, gas), and renewables (wind, solar, hydro, nuclear).</li>
+                            <li>Source: <a href="https://ourworldindata.org/grapher/access-to-electricity-vs-gdp-per-capita" target="_blank" class="text-[#bb9979] hover:underline">Our World in Data</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>World Demographics per Country:</strong> This dataset from the U.S. Census Bureau provides demographic information for each country.
+                        <ul class="list-circle list-inside ml-6 mt-1">
+                            <li>Features include: population count, area, population density, and growth rate.</li>
+                            <li>Source: <a href="https://www.census.gov/data-tools/demo/idb/#/table" target="_blank" class="text-[#bb9979] hover:underline">U.S. Census Bureau</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Methodology</h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>
+                        <strong>Data Cleaning and Preparation:</strong> The datasets were merged and preprocessed. This involved standardizing column names, handling null values, and performing data extractions and transformations.
+                    </li>
+                    <li>
+                        <strong>Feature Engineering & Dimensionality Reduction:</strong> Correlation analysis was performed to identify key features. Principal Component Analysis (PCA) was used to reduce feature dimensionality to a highly correlated subset.
+                    </li>
+                    <li>
+                        <strong>Model Development and Evaluation:</strong> Nine different regression models were trained, including Random Forest, K-Nearest Neighbors (KNN), and others. Models were evaluated using R-squared ($R^2$), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE). Hyperparameter tuning was performed on the best-performing models to optimize accuracy.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Results and Conclusion</h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>
+                        Initial analysis showed a strong positive correlation between fossil fuel consumption and $CO_2$ emissions, and a strong negative correlation with renewable energy sources.
+                    </li>
+                    <li>
+                        The **Random Forest Classifier** and **K-Nearest Neighbor (KNN)** models demonstrated the highest performance, achieving $R^2$ scores over **0.91**.
+                    </li>
+                    <li>
+                        Hyperparameter tuning on the KNN model further improved its accuracy, resulting in an optimal $R^2$ score of **0.918**. The model's key parameters were tuned to `n_neighbors=9`, `p=1`, and `weights='distance'`.
+                    </li>
+                    <li>
+                        The project demonstrates that machine learning can be a powerful tool for forecasting global $CO_2$ emissions and that the transition to renewable energy sources is a critical step toward sustainability.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Challenges and Limitations</h2>
+                <p class="text-base text-gray-700 mb-4">
+                    While the model is highly accurate, it's important to note some limitations:
+                </p>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>The dataset is limited to $CO_2$ as the primary greenhouse gas, which doesn't provide a complete picture of overall climate impact.</li>
+                    <li>The ethical and economic challenges of transitioning to renewable energy are complex and not fully captured in the data.</li>
+                    <li>Data from some less developed countries may be sparse, which can impact the model's global generalizability.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title">Technology Stack</h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>**Programming Language:** Python</li>
+                    <li>**Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</li>
+                    <li>**Tools:** Jupyter Notebook</li>
+                </ul>
+            </section>
+
+            <section class="mb-2">
+                <h2 class="project-section-title">Contact</h2>
+                <p class="text-base text-gray-700">
+                    For questions or collaboration, reach out via <a class="text-[#bb9979] hover:underline" href="mailto:sayalinage@gmail.com">E-mail</a> or connect on
+                    <a class="text-[#bb9979] hover:underline" href="https://www.linkedin.com/in/sayali-nage-34303b136" target="_blank">LinkedIn</a>.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-[#919191] text-white text-center p-6 mt-12">
+        <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const el = document.querySelector(this.getAttribute('href'));
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
