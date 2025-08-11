@@ -1,357 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayali Nage - Data Science Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-image: url('https://raw.githubusercontent.com/sayalisnage/sayalisnage.github.io/main/assets/img/index-background.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #F9FAFB;
-            color: #374151;
-        }
-        /* Increased margin-bottom for section titles for better spacing */
-        .section-title {
-            @apply text-4xl font-bold text-center mb-16 text-[#3c2724]; /* Adjusted from mb-12 to mb-16 */
-        }
-        .card {
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
-        }
-        .project-image {
-            @apply rounded-md mb-4;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .nav-link.active {
-            @apply text-gray-200;
-            position: relative;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -5px;
-            height: 2px;
-            background-color: #D1D5DB;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayali Nage - Data Science Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            /* Use a lighter color for the main body text to contrast with the dark background */
+            color: #F3F4F6;
+            /* Set a dark background color as a fallback */
+            background-color: #1F2937;
+        }
+        
+        /* This creates a div that acts as an overlay on the background image */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://raw.githubusercontent.com/sayalisnage/sayalisnage.github.io/main/assets/img/index-background.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -2; /* Puts the image behind the content */
+        }
+
+        /* This creates a semi-transparent black overlay to improve text readability */
+        .background-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity here (0.4 is a good start) */
+            z-index: -1; /* Puts the overlay between the image and the content */
+        }
+
+        /* The main content should be placed within a container that is not fixed position */
+        .main-content {
+            position: relative;
+            z-index: 1; /* Ensures content is on top of the overlay */
+        }
+
+        /* Increased margin-bottom for section titles for better spacing */
+        .section-title {
+            @apply text-4xl font-bold text-center mb-16 text-gray-100; /* Adjusted to a lighter color */
+        }
+        .card {
+            /* Use a semi-transparent white background for cards for a modern look */
+            @apply bg-white/10 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col backdrop-blur-sm;
+        }
+        .project-image {
+            @apply rounded-md mb-4;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .nav-link.active {
+            @apply text-gray-200;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px;
+            height: 2px;
+            background-color: #D1D5DB;
+        }
+        /* Adjusting colors for the Technical Toolkit and Publications sections for readability on a white background */
+        .toolkit-bg, .publications-bg {
+            @apply bg-white rounded-lg;
+        }
+        .toolkit-title, .publications-title {
+            @apply text-3xl font-semibold text-center mb-8 text-[#3c2724];
+        }
+        .toolkit-card, .publication-card {
+            @apply p-6 bg-gray-50 rounded-lg shadow-md;
+        }
+        .toolkit-card-title, .publication-card-title {
+            @apply text-xl font-bold text-[#3c2724] mb-4;
+        }
+        .toolkit-list, .publication-text {
+            @apply list-none space-y-2 text-gray-700;
+        }
+    </style>
 </head>
 <body class="leading-relaxed">
-    <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
-                <span class="text-2xl font-bold">Sayali Nage</span>
-                <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
-            </a>
-            <ul class="flex space-x-6">
-                <li><a href="#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
-                <li><a href="#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
-                <li><a href="#technical-toolkit" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Technical Toolkit</a></li>
-                <li><a href="#publications" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Publications</a></li>
-                <li><a href="#about" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">About</a></li>
-                <li><a href="#contact" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Get in Touch</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <section id="home" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12">
-            <div class="md:w-1/2 md:pr-12">
-                <h1 class="text-6xl font-extrabold text-[#3c2724] mb-4">Hi, I'm Sayali!</h1>
-                <h2 class="text-3xl font-semibold text-[#bb9979] mb-6">Solving Real-World Problems with Data and Machine Learning</h2>
-                <p class="text-lg leading-relaxed mb-8 text-gray-700">
-                    My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
-                </p>
-                <div class="space-x-4">
-                    <a href="#featured-work" class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md">Explore My Work</a>
-                    <a href="#contact" class="border border-[#bb9979] text-[#bb9979] px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors duration-300 shadow-md">Get in Touch</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-                <img src="assets/img/snprofile.png" alt="Sayali Nage's professional headshot" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover">
-            </div>
-        </section>
+    <div class="background-overlay"></div>
 
-        <section id="featured-work" class="py-16">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Featured Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="card">
-                    <img src="assets/img/childcare-locator.png" alt="Smart Childcare Recommendation System project thumbnail, showing a map with childcare locations" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Smart Childcare Recommendation System</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Predicting infant care costs and providing personalized childcare center recommendations using NDCP and socioeconomic data.
-                    </p>
-                    <a href="childcare-locator.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+    <div class="main-content">
+        <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
+            <nav class="container mx-auto flex justify-between items-center">
+                <a href="#home" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
+                    <span class="text-2xl font-bold">Sayali Nage</span>
+                    <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
+                </a>
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
+                    <li><a href="#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
+                    <li><a href="#technical-toolkit" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Technical Toolkit</a></li>
+                    <li><a href="#publications" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Publications</a></li>
+                    <li><a href="#about" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">About</a></li>
+                    <li><a href="#contact" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Get in Touch</a></li>
+                </ul>
+            </nav>
+        </header>
 
-                <div class="card">
-                    <img src="assets/img/the-ai-gardener.png" alt="The AI Gardener project thumbnail, showing a plant and AI interface" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">The AI Gardener</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        AI-powered plant care assistant with a fine-tuned GPT-4o model, deployed via Streamlit.
-                    </p>
-                    <a href="the-ai-gardener.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+        <main class="container mx-auto px-6 py-12">
+            <section id="home" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12">
+                <div class="md:w-1/2 md:pr-12">
+                    <h1 class="text-6xl font-extrabold text-white mb-4">Hi, I'm Sayali!</h1>
+                    <h2 class="text-3xl font-semibold text-gray-200 mb-6">Solving Real-World Problems with Data and Machine Learning</h2>
+                    <p class="text-lg leading-relaxed mb-8 text-gray-200">
+                        My passion lies in leveraging data and machine learning to address critical real-world problems and develop impactful AI solutions. With a foundation in the electrical and power sector, I now specialize in applying data science to areas such as sustainability, public services, and intelligent systems.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#featured-work" class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md">Explore My Work</a>
+                        <a href="#contact" class="border border-white text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-[#bb9979] transition-colors duration-300 shadow-md">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                    <img src="assets/img/snprofile.png" alt="Sayali Nage's professional headshot" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover">
+                </div>
+            </section>
 
-                <div class="card">
-                    <img src="assets/img/pm25-forecast.png" alt="Urban Air Pollution Forecasting project thumbnail, showing air quality data graph" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Urban Air Pollution Forecasting</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Forecasting PM2.5 air pollution in Los Angeles using Time Series and ML models with Environmental APIs.
-                    </p>
-                    <a href="pm25-forecasting.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+            <section id="featured-work" class="py-16">
+                <h2 class="text-3xl font-semibold text-center mb-8 text-white">Featured Work</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <div class="card">
+                        <img src="assets/img/childcare-locator.png" alt="Smart Childcare Recommendation System project thumbnail, showing a map with childcare locations" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Smart Childcare Recommendation System</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Predicting infant care costs and providing personalized childcare center recommendations using NDCP and socioeconomic data.
+                        </p>
+                        <a href="childcare-locator.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/energy-burden-us.png" alt="Quantifying Energy Burden in the United States project thumbnail, showing a U.S. map with energy burden metrics" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Quantifying Energy Burden in the United States</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        State-level analysis of electricity affordability across the U.S., exploring how income, prices, and climate impact energy burden from 2021 to 2023.
-                    </p>
-                    <a href="energy-burden-us.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/the-ai-gardener.png" alt="The AI Gardener project thumbnail, showing a plant and AI interface" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">The AI Gardener</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            AI-powered plant care assistant with a fine-tuned GPT-4o model, deployed via Streamlit.
+                        </p>
+                        <a href="the-ai-gardener.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/low-voltage-power-system.png" alt="Low-Voltage Power System Modelling project thumbnail, showing an electrical grid" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Low-Voltage Power System Modelling</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Addressed power system efficiency using household energy data and various machine learning models.
-                    </p>
-                    <a href="low-voltage-modelling.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/pm25-forecast.png" alt="Urban Air Pollution Forecasting project thumbnail, showing air quality data graph" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Urban Air Pollution Forecasting</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Forecasting PM2.5 air pollution in Los Angeles using Time Series and ML models with Environmental APIs.
+                        </p>
+                        <a href="pm25-forecasting.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/co2-energy-sustainability.png" alt="Global CO2 Emissions & Sustainability project thumbnail, showing global CO2 emissions graph" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Global CO₂ Emissions & Sustainability</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Explored CO₂ emissions, energy production, and economic indicators using data mining and predictive models.
-                    </p>
-                    <a href="co2-energy-sustainability.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/energy-burden-us.png" alt="Quantifying Energy Burden in the United States project thumbnail, showing a U.S. map with energy burden metrics" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Quantifying Energy Burden in the United States</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            State-level analysis of electricity affordability across the U.S., exploring how income, prices, and climate impact energy burden from 2021 to 2023.
+                        </p>
+                        <a href="energy-burden-us.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/childcare-cost-storytelling.png" alt="Childcare costs acros USA Stroytelling with Python project thumbnail, showing a story with social media" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Extensive Childcare Costs in the USA: Storytelling</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Explore childcare costs and affordability in the U.S. How to communicate insights through blog, social media, and visual content tailored for different audiences.
-                    </p>
-                    <a href="usa-childcare-storytelling.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/low-voltage-power-system.png" alt="Low-Voltage Power System Modelling project thumbnail, showing an electrical grid" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Low-Voltage Power System Modelling</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Addressed power system efficiency using household energy data and various machine learning models.
+                        </p>
+                        <a href="low-voltage-modelling.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/global-energy-outlook.png" alt="Global Energy Data Wrangling project thumbnail, showing data flowing into a database" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Global Energy Outlook: Data Wrangling</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Multi-stage data wrangling project integrating diverse global energy datasets into a SQLite database.
-                    </p>
-                    <a href="global-energy-outlook.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/co2-energy-sustainability.png" alt="Global CO2 Emissions & Sustainability project thumbnail, showing global CO2 emissions graph" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Global CO₂ Emissions & Sustainability</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Explored CO₂ emissions, energy production, and economic indicators using data mining and predictive models.
+                        </p>
+                        <a href="co2-energy-sustainability.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/home-energy-weather.png" alt="Home Energy Consumption EDA project thumbnail, showing a smart home dashboard" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Home Energy Consumption And Weather: EDA</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Examined household energy usage patterns in relation to weather data with extensive cleaning and feature engineering.
-                    </p>
-                    <a href="home-energy-and-weather..html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/childcare-cost-storytelling.png" alt="Childcare costs acros USA Stroytelling with Python project thumbnail, showing a story with social media" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Extensive Childcare Costs in the USA: Storytelling</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Explore childcare costs and affordability in the U.S. How to communicate insights through blog, social media, and visual content tailored for different audiences.
+                        </p>
+                        <a href="usa-childcare-storytelling.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/weather-forecast.png" alt="Weather Forecast Application project thumbnail, showing weather icons" class="project-image">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Weather Forecast Application</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Command-line weather forecasting application using Python and OpenWeatherMap API, featuring robust error handling.
-                    </p>
-                    <a href="weather-forecast.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/global-energy-outlook.png" alt="Global Energy Data Wrangling project thumbnail, showing data flowing into a database" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Global Energy Outlook: Data Wrangling</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Multi-stage data wrangling project integrating diverse global energy datasets into a SQLite database.
+                        </p>
+                        <a href="global-energy-outlook.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-            </div>
-        </section>
+                    <div class="card">
+                        <img src="assets/img/home-energy-weather.png" alt="Home Energy Consumption EDA project thumbnail, showing a smart home dashboard" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Home Energy Consumption And Weather: EDA</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Examined household energy usage patterns in relation to weather data with extensive cleaning and feature engineering.
+                        </p>
+                        <a href="home-energy-and-weather..html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
 
-        <section id="technical-toolkit" class="py-16 bg-gray-50 rounded-lg">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Technical Toolkit</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-                <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Programming Languages</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>Python</li>
-                        <li>R</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Data Analysis & ML Libraries</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>Pandas, NumPy</li>
-                        <li>Scikit-learn, Statsmodels</li>
-                        <li>XGBoost, LightGBM</li>
-                        <li>Matplotlib, Seaborn, ggplot2</li>
-                        <li>Plotly, PowerBI</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Machine Learning & Modeling</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>Regression (Linear, Ridge, Lasso, ElasticNet)</li>
-                        <li>Classification (KNN, Decision Tree, Random Forest, Gradient Boost)</li>
-                        <li>Time Series Forecasting (SARIMA, SARIMAX)</li>
-                        <li>Recommender Systems</li>
-                        <li>PCA, Feature Engineering</li>
-                        <li>Model Evaluation (MAE, RMSE, SMAPE)</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Generative AI & Deployment</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>OpenAI API, Prompt Engineering</li>
-                        <li>Fine-tuning LLMs</li>
-                        <li>Streamlit</li>
-                        <li>API Integration (OpenWeatherMap, OpenAQ)</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Databases & Tools</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>SQLite, SQL</li>
-                        <li>Git, GitHub</li>
-                        <li>Jupyter Notebook, R Markdown</li>
-                        <li>MLFlow (concepts)</li>
-                    </ul>
-                </div>
-                   <div class="p-6 bg-white rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-[#3c2724] mb-4">Methodologies & Concepts</h3>
-                    <ul class="list-none space-y-2 text-gray-700">
-                        <li>Exploratory Data Analysis (EDA)</li>
-                        <li>Data Cleaning & Wrangling</li>
-                        <li>Statistical Analysis, Hypothesis Testing</li>
-                        <li>Data Mining</li>
-                        <li>Audience-Centric Data Storytelling</li>
-                        <li>Ethical AI & Data Representation</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                    <div class="card">
+                        <img src="assets/img/weather-forecast.png" alt="Weather Forecast Application project thumbnail, showing weather icons" class="project-image">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">Weather Forecast Application</h3>
+                        <p class="text-base text-gray-300 mb-4 flex-grow">
+                            Command-line weather forecasting application using Python and OpenWeatherMap API, featuring robust error handling.
+                        </p>
+                        <a href="weather-forecast.html" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Project</a>
+                    </div>
+                </div>
+            </section>
 
-        <section id="publications" class="py-16 bg-gray-50 rounded-lg mt-12">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Publications & Insights</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Childcare Cost vs. Living with Parents</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, published under **SYLA The Fact Lab**.
-                    </p>
-                    <a href="assets/docs/SayaliNage_DSC640Week11-12_ProjectMilestone3_Medium1_BlogArticle.pdf" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
-                </div>
+            <section id="technical-toolkit" class="py-16 bg-white rounded-lg">
+                <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Technical Toolkit</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Programming Languages</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>Python</li>
+                            <li>R</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Data Analysis & ML Libraries</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>Pandas, NumPy</li>
+                            <li>Scikit-learn, Statsmodels</li>
+                            <li>XGBoost, LightGBM</li>
+                            <li>Matplotlib, Seaborn, ggplot2</li>
+                            <li>Plotly, PowerBI</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Machine Learning & Modeling</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>Regression (Linear, Ridge, Lasso, ElasticNet)</li>
+                            <li>Classification (KNN, Decision Tree, Random Forest, Gradient Boost)</li>
+                            <li>Time Series Forecasting (SARIMA, SARIMAX)</li>
+                            <li>Recommender Systems</li>
+                            <li>PCA, Feature Engineering</li>
+                            <li>Model Evaluation (MAE, RMSE, SMAPE)</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Generative AI & Deployment</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>OpenAI API, Prompt Engineering</li>
+                            <li>Fine-tuning LLMs</li>
+                            <li>Streamlit</li>
+                            <li>API Integration (OpenWeatherMap, OpenAQ)</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Databases & Tools</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>SQLite, SQL</li>
+                            <li>Git, GitHub</li>
+                            <li>Jupyter Notebook, R Markdown</li>
+                            <li>MLFlow (concepts)</li>
+                        </ul>
+                    </div>
+                       <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-[#3c2724] mb-4">Methodologies & Concepts</h3>
+                        <ul class="list-none space-y-2 text-gray-700">
+                            <li>Exploratory Data Analysis (EDA)</li>
+                            <li>Data Cleaning & Wrangling</li>
+                            <li>Statistical Analysis, Hypothesis Testing</li>
+                            <li>Data Mining</li>
+                            <li>Audience-Centric Data Storytelling</li>
+                            <li>Ethical AI & Data Representation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-                <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Communicating Childcare Cost Insights</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        A storytelling project leveraging the National Database of Childcare Prices, presented through a blog, Instagram reel, and Facebook ad.
-                    </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
-                </div>
+            <section id="publications" class="py-16 bg-white rounded-lg mt-12">
+                <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">Publications & Insights</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Childcare Cost vs. Living with Parents</h3>
+                        <p class="text-base text-gray-600 mb-4 flex-grow">
+                            An in-depth analysis exploring the financial and practical implications of childcare costs versus family caregiving, published under **SYLA The Fact Lab**.
+                        </p>
+                        <a href="assets/docs/SayaliNage_DSC640Week11-12_ProjectMilestone3_Medium1_BlogArticle.pdf" target="_blank" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
+                    </div>
 
-                <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Raising car Theft in USA</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        A storytelling project leveraging the KIA-Hyundei car theft data in US to effective present insurance block on certain make and model of cars.
-                    </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
-                </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Communicating Childcare Cost Insights</h3>
+                        <p class="text-base text-gray-600 mb-4 flex-grow">
+                            A storytelling project leveraging the National Database of Childcare Prices, presented through a blog, Instagram reel, and Facebook ad.
+                        </p>
+                        <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
+                    </div>
 
-                   <div class="card p-6">
-                    <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Build extraordinary Portfolio using Cool Visualizations in PowerBI</h3>
-                    <p class="text-base text-gray-600 mb-4 flex-grow">
-                        Leveraging TSA Complaints data to showcase how to effectively create cool visualizations in PowerBI showcasing professional Visuliazation and modelling skills.
-                    </p>
-                    <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
-                </div>
-            </div>
-            <div class="text-center mt-10">
-                </div>
-        </section>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Raising car Theft in USA</h3>
+                        <p class="text-base text-gray-600 mb-4 flex-grow">
+                            A storytelling project leveraging the KIA-Hyundei car theft data in US to effective present insurance block on certain make and model of cars.
+                        </p>
+                        <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">View Story</a>
+                    </div>
 
-        <section id="about" class="py-16">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-[#3c2724]">About Me</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-700">
-                <p class="mb-4">
-                    I am a data science professional with a background in engineering and a growing passion for building AI-driven solutions that deliver meaningful social and environmental impact. I bring a unique blend of technical rigor, cross-domain understanding, and a strong interest in applied machine learning to solve real-world problems.
-                </p>
-                <p class="mb-4">
-                    My early career in the electrical and power sector honed my skills in system-level thinking, data analysis, and project management. As I transitioned into data science, I developed expertise in Python programming, statistical modeling with R, time series forecasting, data visualization, and end-to-end machine learning workflows. I particularly enjoy working on projects that intersect public services, sustainability, and intelligent automation.
-                </p>
-                <p class="mb-4">
-                    I’ve worked with a variety of datasets—ranging from environmental and energy data to public service and child care platforms—and have experience turning raw data into actionable tools using frameworks like Streamlit, scikit-learn, and OpenAI’s GPT models. I take pride in crafting solutions that are not just accurate, but also interpretable and user-friendly.
-                </p>
-                <p class="mb-4">
-                    What drives me is the potential of data science to enable smarter decisions, uncover hidden patterns, and contribute to a more equitable future. I'm particularly interested in responsible AI, interpretable models, and AI applications in sustainability, education, and smart cities.
-                </p>
-                <p>
-                    Outside of building models and dashboards, I enjoy exploring new technologies, contributing to open-source projects, and learning from other data professionals. I’m always open to collaboration and conversations that challenge conventional thinking and push the boundaries of what data can do.
-                </p>
-            </div>
-        </section>
+                       <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#3c2724] mb-2">Build extraordinary Portfolio using Cool Visualizations in PowerBI</h3>
+                        <p class="text-base text-gray-600 mb-4 flex-grow">
+                            Leveraging TSA Complaints data to showcase how to effectively create cool visualizations in PowerBI showcasing professional Visuliazation and modelling skills.
+                        </p>
+                        <a href="#" class="mt-4 bg-[#bb9979] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#a3876b] transition-colors duration-300 self-start">Read Article</a>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    </div>
+            </section>
 
-        <section id="contact" class="py-16 bg-gray-50 rounded-lg mt-12">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                <p class="text-lg leading-relaxed mb-8 text-gray-700">
-                    I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
-                </p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="mailto:sayalinage@gmail.com" class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md">Email Me</a>
-                    <a href="https://www.linkedin.com/in/sayali-nage-34303b136" target="_blank" class="bg-gray-700 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-md">LinkedIn</a>
-                    <a href="https://github.com/sayalisnage" target="_blank" class="bg-black text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 shadow-md">GitHub</a>
-                </div>
-            </div>
-        </section>
-    </main>
+            <section id="about" class="py-16">
+                <h2 class="text-3xl font-semibold text-center mb-8 text-white">About Me</h2>
+                <div class="bg-white/10 p-8 rounded-lg shadow-lg text-lg leading-relaxed text-gray-200 backdrop-blur-sm">
+                    <p class="mb-4">
+                        I am a data science professional with a background in engineering and a growing passion for building AI-driven solutions that deliver meaningful social and environmental impact. I bring a unique blend of technical rigor, cross-domain understanding, and a strong interest in applied machine learning to solve real-world problems.
+                    </p>
+                    <p class="mb-4">
+                        My early career in the electrical and power sector honed my skills in system-level thinking, data analysis, and project management. As I transitioned into data science, I developed expertise in Python programming, statistical modeling with R, time series forecasting, data visualization, and end-to-end machine learning workflows. I particularly enjoy working on projects that intersect public services, sustainability, and intelligent automation.
+                    </p>
+                    <p class="mb-4">
+                        I’ve worked with a variety of datasets—ranging from environmental and energy data to public service and child care platforms—and have experience turning raw data into actionable tools using frameworks like Streamlit, scikit-learn, and OpenAI’s GPT models. I take pride in crafting solutions that are not just accurate, but also interpretable and user-friendly.
+                    </p>
+                    <p class="mb-4">
+                        What drives me is the potential of data science to enable smarter decisions, uncover hidden patterns, and contribute to a more equitable future. I'm particularly interested in responsible AI, interpretable models, and AI applications in sustainability, education, and smart cities.
+                    </p>
+                    <p>
+                        Outside of building models and dashboards, I enjoy exploring new technologies, contributing to open-source projects, and learning from other data professionals. I’m always open to collaboration and conversations that challenge conventional thinking and push the boundaries of what data can do.
+                    </p>
+                </div>
+            </section>
 
-    <footer class="bg-[#919191] text-white text-center p-6 mt-12">
-        <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
-    </footer>
+            <section id="contact" class="py-16 bg-white rounded-lg mt-12">
+                <h2 class="section-title text-[#3c2724]">Get in Touch</h2>
+                <div class="p-8 rounded-lg text-center">
+                    <p class="text-lg leading-relaxed mb-8 text-gray-700">
+                        I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="mailto:sayalinage@gmail.com" class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md">Email Me</a>
+                        <a href="https://www.linkedin.com/in/sayali-nage-34303b136" target="_blank" class="bg-gray-700 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-md">LinkedIn</a>
+                        <a href="https://github.com/sayalisnage" target="_blank" class="bg-black text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 shadow-md">GitHub</a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        <footer class="bg-[#919191] text-white text-center p-6 mt-12">
+            <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
+        </footer>
+    </div>
 
-        // Optional: Highlight active navigation link on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Adjust 'sectionHeight / 3' for sensitivity - how far into a section before it becomes active
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
+        // Optional: Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                // Check if the link's href contains the current section's ID
-                if (link.href.includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Adjust 'sectionHeight / 3' for sensitivity - how far into a section before it becomes active
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                // Check if the link's href contains the current section's ID
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
