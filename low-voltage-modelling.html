@@ -141,16 +141,14 @@
   </header>
 
   <main class="container mx-auto px-6 py-12">
-    <article class="bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto">
-      <h1
-        class="text-5xl font-extrabold text-[#3c2724] mb-8 text-center"
-      >
+    <article class="bg-white p-8 rounded-lg shadow-lg">
+      <h1 class="text-5xl font-extrabold text-[#3c2724] mb-8 text-center">
         Low-Voltage Level Power System Modelling
       </h1>
-
-      <p class="lead mb-6">
+      <p class="lead">
         <strong>
-          Forecasting energy consumption and maximum demand in residential and small commercial systems using time series data from Southern Germany.
+          Forecasting energy consumption and maximum demand for residential and
+          small commercial systems using time series data from Southern Germany.
         </strong>
       </p>
 
@@ -159,7 +157,8 @@
           href="https://github.com/sayalisnage/low-voltage-power-modelling"
           target="_blank"
           class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md flex items-center"
-          ><svg
+        >
+          <svg
             class="w-5 h-5 mr-2"
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -169,107 +168,117 @@
               fill-rule="evenodd"
               d="M10 0C4.477 0 0 4.484 0 10.012c0 4.417 2.865 8.165 6.84 9.48.5.09.68-.216.68-.48 0-.236-.008-.866-.013-1.7-2.782.603-3.37-1.34-3.37-1.34-.454-1.155-1.11-1.463-.08-1.57C4.09 13.116 4.672 13.567 5 13.882c.582.99 1.522.704 1.87.536.058-.417.228-.704.414-.866-1.448-.165-2.96-.72-2.96-3.228 0-.712.256-1.298.674-1.756-.068-.165-.292-.83.065-1.733 0 0 .54-.176 1.77.67A9.97 9.97 0 0110 5.4c.54.088 1.09.13 1.64.13.55 0 1.1-.042 1.64-.13 1.23-.846 1.77-.67 1.77-.67.354.903.13 1.568.064 1.733.418.458.674 1.044.674 1.756 0 2.518-1.512 3.062-2.965 3.22.235.204.444.606.444 1.222 0 1.07-.01 1.936-.01 2.19 0 .266.18.57.688.48C17.135 18.174 20 14.425 20 10.012 20 4.484 15.523 0 10 0z"
               clip-rule="evenodd"
-            ></path></svg
-          >View on GitHub</a
-        >
+            ></path>
+          </svg>
+          <span>View on GitHub</span>
+        </a>
+
+        <span
+          class="bg-gray-400 text-white px-6 py-3 rounded-full text-lg font-medium shadow-md flex items-center cursor-not-allowed opacity-75"
+          ><svg
+            class="w-5 h-5 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.755 8.016A.75.75 0 006 8.75v2.5a.75.75 0 00.755.734L11.5 12.71a.75.75 0 00.916-1.157l-4.65-3.087z"
+            ></path>
+          </svg>
+        </span>
       </div>
 
-      <section id="overview" class="mb-12">
+      <section id="overview">
         <h2 class="section-title">Project Overview</h2>
         <p>
-          This project focuses on forecasting energy consumption and maximum
-          demand at the low-voltage level using time series data collected
-          from 11 households in Southern Germany between 2014 and 2020. It
-          analyzes 15- and 60-minute interval data covering overall energy
-          consumption, photovoltaic generation, electric vehicle charging,
-          and appliance-level usage. The aim is to identify load patterns and
-          build regression models that predict peak electricity demand to
-          support energy efficiency and grid reliability.
+          This project forecasts energy consumption and maximum demand at the
+          low-voltage level based on detailed time series data from 11
+          households in Southern Germany between 2014 and 2020. The data
+          includes 15- and 60-minute interval measurements covering overall
+          consumption, photovoltaic generation, electric vehicle charging, and
+          appliance-level usage. The goal is to understand load patterns and
+          build regression models to predict peak demand, aiding energy
+          efficiency and grid stability efforts.
         </p>
       </section>
 
-      <section id="data-sources" class="mb-12">
+      <section id="data">
         <h2 class="section-title">Data Sources</h2>
-        <ul>
-          <li>
-            <strong>Open Power System Data:</strong> Time series data from 11
-            households including total consumption, PV generation, EV charging,
-            and appliance-level loads at 15- and 60-minute intervals.
-            <br />
-            <a
-              href="https://open-power-system-data.org/"
-              target="_blank"
-              >https://open-power-system-data.org/</a
-            >
-          </li>
-        </ul>
+
+        <div class="two-col">
+          <div>
+            <h3>Primary Dataset</h3>
+            <ul>
+              <li>
+                <strong>Open Power System Data:</strong> Comprehensive
+                time-series data from 11 households including consumption,
+                PV generation, EV charging, and appliance loads with 15- and
+                60-minute resolution.
+                <br />
+                <a href="https://open-power-system-data.org/" target="_blank"
+                  >https://open-power-system-data.org/</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Notes</h3>
+            <p class="muted">
+              The data covers several years and multiple load types but is
+              geographically limited to Southern Germany.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section id="methodology" class="mb-12">
+      <section id="methods">
         <h2 class="section-title">Methodology</h2>
         <ol>
           <li>
             <strong>Data Preparation and Cleaning</strong>
             <ul>
-              <li>Standardized column names and removed duplicates.</li>
-              <li>Filtered data to December 2015 through June 2017.</li>
-              <li>Aggregated and imputed missing values for PV generation and demand.</li>
+              <li>Standardized columns and filtered to Dec 2015–Jun 2017 period.</li>
+              <li>Handled missing values and aggregated PV generation data.</li>
             </ul>
           </li>
           <li>
-            <strong>Feature Engineering & Dimensionality Reduction</strong>
+            <strong>Feature Engineering and Dimensionality Reduction</strong>
             <ul>
-              <li>Correlation analysis to identify key features for maximum demand.</li>
-              <li>Applied PCA to reduce dimensionality while retaining 90% variance.</li>
-              <li>Split data into training and test sets (80/20).</li>
+              <li>Performed correlation analysis to select relevant features.</li>
+              <li>Applied Principal Component Analysis (PCA) retaining 90% variance.</li>
+              <li>Split data into training and test sets with an 80/20 ratio.</li>
             </ul>
           </li>
           <li>
-            <strong>Model Training & Evaluation</strong>
+            <strong>Model Training and Evaluation</strong>
             <ul>
-              <li>Trained multiple regression models including Linear, Ridge, Lasso, Elastic Net, KNN, Decision Tree, Random Forest, and Gradient Boosting.</li>
-              <li>Evaluated performance using R², MAE, and RMSE metrics.</li>
+              <li>Trained multiple regression models: Linear, Ridge, Lasso, Elastic Net, KNN, Decision Tree, Random Forest, Gradient Boosting.</li>
+              <li>Evaluated models using R², MAE, and RMSE metrics.</li>
             </ul>
           </li>
         </ol>
       </section>
 
-      <section id="results" class="mb-12">
+      <section id="results">
         <h2 class="section-title">Results Summary</h2>
         <ul>
-          <li>
-            Gradient Boosting, K-Nearest Neighbors, and Random Forest models
-            achieved R² ≈ 0.99, indicating strong predictive accuracy.
-          </li>
-          <li>
-            PCA improved model robustness by reducing overfitting in simpler models.
-          </li>
-          <li>
-            Appliance-level consumption showed strong correlation with maximum demand.
-          </li>
+          <li>Gradient Boosting, KNN, and Random Forest models achieved R² ≈ 0.99, showing excellent predictive accuracy.</li>
+          <li>PCA improved model robustness by reducing dimensionality and overfitting risk.</li>
+          <li>Appliance-level consumption strongly correlated with maximum demand.</li>
         </ul>
       </section>
 
-      <section id="limitations" class="mb-12">
-        <h2 class="section-title">Limitations</h2>
-        <ul>
-          <li>Geographic scope limited to Southern Germany; may affect generalization.</li>
-          <li>Weather, appliance specs, and tariff effects were not fully modeled.</li>
-          <li>Unforeseen events such as load shedding introduce uncertainty.</li>
-        </ul>
-      </section>
-
-      <section id="future-work" class="mb-12">
+      <section id="future">
         <h2 class="section-title">Future Work</h2>
         <ul>
-          <li>Integrate weather and tariff data for enhanced forecasting.</li>
-          <li>Develop real-time monitoring dashboards.</li>
-          <li>Expand to other regions and larger datasets.</li>
-          <li>Explore deep learning models for sequence forecasting.</li>
+          <li>Integrate weather and tariff data for more comprehensive forecasting.</li>
+          <li>Develop real-time monitoring dashboards for stakeholders.</li>
+          <li>Expand dataset to other regions and include larger samples.</li>
+          <li>Explore advanced deep learning methods for time series prediction.</li>
         </ul>
       </section>
 
-      <section id="contact" class="mb-12">
+      <section id="contact">
         <h2 class="section-title">Contact</h2>
         <p>
           For questions or collaboration, email
@@ -286,7 +295,7 @@
     </article>
   </main>
 
-  <footer class="text-center py-6 text-gray-500">
+  <footer>
     &copy; 2025 Sayali Nage — Low-Voltage Level Power System Modelling
   </footer>
 </body>
