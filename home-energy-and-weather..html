@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Energy Consumption and Weather Data Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #F9FAFB;
+            color: #374151;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-[#3c2724];
+        }
+        .project-section-title {
+            @apply text-3xl font-bold text-[#3c2724] mb-6;
+        }
+        .subsection-title {
+            @apply text-2xl font-semibold text-[#bb9979] mb-4;
+        }
+        pre {
+            background-color: #e2e8f0; /* bg-gray-200 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-md */
+            overflow-x: auto; /* For long lines of code */
+            margin-bottom: 1.5rem;
+        }
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: #374151; /* text-gray-700 */
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #bb9979; /* A shade of your accent color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #a3876b; /* Slightly darker shade on hover */
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 3rem 0;
+        }
+        /* Styles for navigation highlighting */
+        .nav-link.active {
+            @apply text-gray-200;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px;
+            height: 2px;
+            background-color: #D1D5DB;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+    <header class="bg-[#919191] text-white p-6 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-start rounded-md px-3 py-2 hover:bg-gray-700 transition-colors duration-300">
+                <span class="text-2xl font-bold">Sayali Nage</span>
+                <span class="text-sm -mt-1 opacity-80">Data Science Enthusiast</span>
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#home" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Home</a></li>
+                <li><a href="index.html#featured-work" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Featured Work</a></li>
+                <li><a href="index.html#technical-toolkit" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Technical Toolkit</a></li>
+                <li><a href="index.html#publications" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Publications</a></li>
+                <li><a href="index.html#about" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">About</a></li>
+                <li><a href="index.html#contact" class="nav-link text-lg hover:text-gray-200 transition-colors duration-300">Get in Touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <article class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-5xl font-extrabold text-center mb-8 text-[#3c2724]">Home Energy Consumption and Weather Data Analysis</h1>
+            <p class="text-xl text-center mb-8 text-gray-600">A data science project on data exploration and analysis to understand home energy consumption patterns.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <!-- Replace with your project's GitHub link -->
+                <a href="https://github.com/sayalisnage/home-energy-consumption-weather-eda" target="_blank"
+                    class="bg-[#bb9979] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#a3876b] transition-colors duration-300 shadow-md flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.012c0 4.417 2.865 8.165 6.84 9.48.5.09.68-.216.68-.48c0-.236-.008-.866-.013-1.7-2.782.603-3.37-1.34-3.37-1.34-.454-1.155-1.11-1.463-.08-1.57C4.09 13.116 4.672 13.567 5 13.882c.582.99 1.522.704 1.87.536.058-.417.228-.704.414-.866-1.448-.165-2.96-.72-2.96-3.228 0-.712.256-1.298.674-1.756-.068-.165-.292-.83.065-1.733 0 0 .54-.176 1.77.67A9.97 9.97 0 0110 5.4c.54.088 1.09.13 1.64.13.55 0 1.1-.042 1.64-.13 1.23-.846 1.77-.67 1.77-.67.354.903.13 1.568.064 1.733.418.458.674 1.044.674 1.756 0 2.518-1.512 3.062-2.965 3.22.235.204.444.606.444 1.222 0 1.07-.01 1.936-.01 2.19 0 .266.18.57.688.48C17.135 18.174 20 14.425 20 10.012 20 4.484 15.523 0 10 0z"></path></svg>
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+
+            <hr class="my-8">
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Project Overview</strong></h2>
+                <p class="mb-4 text-base text-gray-700">
+                    Home energy consumption and efficiency analysis has gained immense popularity with the main objective of reducing C02 emissions, energy costs, and improving overall home efficiency. This project focuses on analyzing the consumption patterns of electrical loads in a household and how they are influenced by weather. By performing a thorough exploratory data analysis and a series of statistical tests, this project seeks to answer a central hypothesis and contribute to a better understanding of how to manage energy consumption based on weather patterns.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Data Sources</strong></h2>
+                <p class="mb-4 text-base text-gray-700">The project uses a time-series dataset to analyze home energy consumption:</p>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>
+                        <strong>Kaggle Dataset:</strong> A time-series dataset containing detailed home energy consumption and generation data, along with local weather conditions.
+                    </li>
+                    <li class="ml-6">
+                        Features: Total energy consumption, energy generation (solar), individual appliance consumption, temperature, humidity, wind speed, and cloud cover.
+                    </li>
+                    <li class="ml-6">
+                        Source: `Kaggle`
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Methodology</strong></h2>
+                <p class="mb-4 text-base text-gray-700">This project follows a structured methodology to explore the dataset and test the hypothesis.</p>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>
+                        <strong class="subsection-title">Data Cleaning and Preparation:</strong>
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>The dataset was loaded and initial exploration was performed using Python libraries.</li>
+                            <li>Invalid values were handled and duplicates were removed.</li>
+                            <li>Fields such as `Furnace 1` and `Furnace 2` were combined for a consolidated view.</li>
+                            <li>The `time` field was formatted into a datetime object, and new features like `year`, `month`, and `weekday` were created to facilitate time-series analysis.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="subsection-title">Exploratory Data Analysis (EDA):</strong>
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>**Single Variable Analysis:** Histograms, PMFs (Probability Mass Functions), and CDFs (Cumulative Distribution Functions) were created to understand the distributions of key variables, such as energy consumption. This included comparing different scenarios within a single variable (e.g., consumption on weekdays vs. weekends).</li>
+                            <li>**Multi-Variable Analysis:** Scatter plots were used to visualize the relationships between two variables, analyzing correlation and causation while considering covariance, Pearson's correlation, and non-linear relationships.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="subsection-title">Statistical Modeling and Hypothesis Testing:</strong>
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>**Hypothesis Testing:** A formal test was conducted on the project's central hypothesis using a statistical method covered in the course.</li>
+                            <li>**Regression Analysis:** A regression model was developed to analyze the impact of one or more explanatory variables (like temperature or humidity) on a dependent variable (such as total energy consumption).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Key Findings</strong></h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>**Seasonal Patterns:** The analysis found a slight difference in energy generation between winter and summer, with slightly more generation in winter due to clearer skies.</li>
+                    <li>**Correlation:** A strong correlation was found between energy consumption and various weather conditions.</li>
+                    <li>**Appliance Usage:** The analysis highlights how specific appliance-level consumption, particularly for systems like the furnace, significantly impacts overall energy usage and demand.</li>
+                    <li>**Hypothesis Validation:** The project was able to use statistical methods to either prove or disprove the initial hypothesis regarding home energy consumption patterns.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Limitations and Assumptions</strong></h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li>The dataset is limited to a single household, which may affect the generalizability of the findings to a broader population.</li>
+                    <li>The data for solar generation lacks details on the specific type of solar source (e.g., solar panels vs. outdoor lighting), making some conclusions limited to assumptions.</li>
+                    <li>The analysis is focused on a specific time period and does not account for changes in appliance efficiency, household behavior, or unforeseen events.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Ethical Considerations</strong></h2>
+                <p class="text-base text-gray-700">
+                    This project acknowledges the importance of privacy in household data collection and analysis. The data used is from a publicly available source, and the analysis is focused on a technical understanding of energy patterns rather than individual behavior.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="project-section-title"><strong>Technology Stack</strong></h2>
+                <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                    <li><strong>Programming Language:</strong> Python</li>
+                    <li><strong>Libraries:</strong> `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`</li>
+                    <li><strong>Tools:</strong> Jupyter Notebook</li>
+                </ul>
+            </section>
+
+            <section class="mb-2">
+                <h2 class="project-section-title"><strong>Contact</strong></h2>
+                <p class="text-base text-gray-700">
+                    For questions or collaboration, please reach out via <a class="text-[#bb9979] hover:underline" href="mailto:sayalinage@gmail.com">E-mail</a> or connect on
+                    <a class="text-[#bb9979] hover:underline" href="https://www.linkedin.com/in/sayali-nage-34303b136" target="_blank">LinkedIn</a>.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-[#919191] text-white text-center p-6 mt-12">
+        <p>&copy; 2025 Sayali Nage. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const el = document.querySelector(this.getAttribute('href'));
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
